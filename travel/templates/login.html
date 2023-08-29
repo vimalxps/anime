@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN PAGE</title>
+    <style>
+        .login_pg{
+                position:absolute;
+                top:50%;
+                left:50%;
+                transform:translate(-50%,-50%);
+                width:420px;
+                background:transparent;
+                backdrop-filter:blur(20px);
+
+        }
+        .login_pg h2{
+                font-size:25px;
+                text-align:center;
+                text-transform:uppercase;
+                margin:40px 0;
+                color:white;
+                }
+        .login_pg input{
+                               font-size:20px;
+                               padding:10px 10px 10px 10px;
+                               width:93%;
+                               border:2px solid white;
+                               border-radius:40px;
+                               outline:none;
+                               font-family:Times New Roman;
+                               background:transparent;
+                               color:white;
+                                                }
+         .login_pg input::placeholder{
+                                        color:white;
+                                         font-size:15px}
+         .login_pg button{
+                                        font-size:18px;
+                                        font-weight:bold;
+
+                                        margin:35px 105px;
+                                        padding:8px 12px;
+                                        width:50%;
+                                        border:2px solid blue;
+                                        border-radius:20px;
+                                        background:transparent;
+                                        color:white;
+
+
+                                         }
+        .login_pg p{
+                                 font-size:20px;
+                                 margin:15px 0;
+                                 color:white;
+                                 font-family:constantia;
+
+                                        }
+        .login_pg button:hover{
+                                        background:lime;
+                                       color:black;
+                                       border:2px solid black;
+                                        }
+    </style>
+</head>
+<body style="background-image:url({% static 'images/newlog.jpg' %}); background-size:cover;">
+<form action="login" method="post">
+    <div class="login_pg">
+        {% csrf_token %}
+        <h2>LOGIN HERE!</h2>
+        <p>Username:</p>
+        <input type="text" name="username" placeholder="Enter Username"><br>
+        <p>Password:</p>
+        <input type="password" name="password" placeholder="Enter Password"><br>
+        <button type="submit">LOGIN</button>
+    </div>
+</form>
+</body>
+</html>

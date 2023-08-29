@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REGISTRATION FORM</title>
+        <style>
+        .registration-form{
+                                position:absolute;
+                                top:50%;
+                                left:50%;
+                                transform:translate(-50%,-50%);
+                                width:400px;
+                                background:transparent;
+                                backdrop-filter:blur(20px);
+                                }
+        .registration-form input{
+                               font-size:15px;
+                               padding:8px 6px;
+                               width:95%;
+                               border:0;
+                               border-radius:5px;
+                               outline:none;
+                               font-family:Times New Roman;
+                                                }
+             .registration-form button{
+                                        font-size:18px;
+                                        font-weight:bold;
+                                        margin:30px 90px;
+                                        padding:10px 15px;
+                                        width:55%;
+                                        border:0;
+                                        border:2px solid white;
+                                        border-radius:5px;
+                                        background:red;
+                                        color:white;
+                                        align:center;
+
+                                         }
+             .registration-form p{
+                                 font-size:20px;margin:15px 0;
+                                 color:white;font-family:constantia;
+                                        }
+             .registration-form button:hover{
+                                     border:2px solid red;
+                                     background:white;
+                                       color:red;
+                                        }
+             .registration-form h1{
+                           font-size:30px;
+                           text-align:center;
+                           text-transform:uppercase;
+                           margin:40px 0;
+                           color:white;
+                           }
+        </style>
+</head>
+<body style="background-image:url({% static 'images/bg.jpg' %}); background-size:cover;color:white;">
+<form method="post" style="align:center;color:blue">
+    <div class="registration-form" >
+        {% csrf_token %}
+        <h1>Registration Form</h1>
+            <p>Username:</p>
+            <input type="text" name="username"placeholder="Enter a Username" required>
+            <p>First Name:</p>
+            <input type="text" name="first_name"placeholder="Enter your Firstname" required>
+            <p>Last Name:</p>
+            <input type="text" name="last_name"placeholder="Enter your Lastname" required>
+            <p>Email ID:</p>
+            <input type="email" name="email"placeholder="Enter your Email ID" required>
+            <p>Password:</p>
+            <input type="password" name="password"placeholder="Create a Password" required>
+            <p>Confirm Password:</p>
+            <input type="password" name="confirm"placeholder="Re-enter your Password" required>
+            <button type="submit">Register</button>
+    </div>
+</form>
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+</body>
+</html>
